@@ -1,4 +1,6 @@
-package com.toastercat.donttouchthebutton;
+package com.toastercat.ultrabutton;
+
+import com.toastercat.donttouchthebutton.R;
 
 import android.app.Activity;
 import android.os.Bundle;
