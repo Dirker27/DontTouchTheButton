@@ -1,7 +1,7 @@
-# DontPushTheButton
+# DontTouchTheButton
 Good game, Nerds.
 
-Copyright ToasterCatProductions - 2015
+Copyright ToasterCat Productions - 2015
 
 Contributors:
 * Dirk Hortensius [Dirker27]
