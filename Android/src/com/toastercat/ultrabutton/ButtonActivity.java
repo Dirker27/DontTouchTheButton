@@ -1,21 +1,29 @@
 package com.toastercat.ultrabutton;
 
 import com.toastercat.donttouchthebutton.R;
+import com.toastercat.ultrabutton.audio.SoundManager;
+import com.toastercat.ultrabutton.model.AudioButton;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class ButtonActivity extends Activity {
+	
+	private AudioButton audioButton;
+	private SoundManager soundManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_button);
+        
+        this.audioButton = new AudioButton();
+        this.soundManager = new SoundManager(this.getBaseContext());
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -34,5 +42,10 @@ public class ButtonActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    
+    
+    public void playButtonAudio(final View v) {
+    	this.soundManager.playAudioClip(this.audioButton.getAudioClipId());
     }
 }
