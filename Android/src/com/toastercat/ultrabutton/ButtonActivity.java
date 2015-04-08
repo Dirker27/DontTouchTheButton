@@ -28,6 +28,7 @@ public class ButtonActivity extends Activity {
         //
         // Attr's
         this.audioButton = new AudioButton();
+        this.audioButton.setLabelColor(Color.WHITE);
         this.audioButton.setBaseColor(Color.GRAY);
         this.audioButton.setFaceColor(Color.GREEN);
         this.audioButton.setAudioClipId(0);

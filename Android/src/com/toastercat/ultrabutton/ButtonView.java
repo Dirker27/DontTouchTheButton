@@ -9,7 +9,9 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Paint.Align;
 import android.graphics.Point;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -28,6 +30,12 @@ public class ButtonView extends View
 
 	public ButtonView(final Context context, final AttributeSet attrs) {
 		super(context, attrs);
+
+		this.brush.setTextSize(175f);
+		this.brush.setTextScaleX(1.25f);
+		this.brush.setTypeface(Typeface.SANS_SERIF);
+		this.brush.setFakeBoldText(true);
+		this.brush.setTextAlign(Align.CENTER);
 	}
 	
 	/**
@@ -40,7 +48,7 @@ public class ButtonView extends View
 		switch (e.getAction()) {
 			case MotionEvent.ACTION_DOWN:
 				b = true;
-				if (this.pointInsideButtonFace(e.getRawX(), e.getRawY())) {
+				if (this.pointInsideButtonFace(e.getX(), e.getY())) {
 					button.setDepressed(true);
 					button.playAudio();
 					this.postInvalidate();
@@ -83,6 +91,12 @@ public class ButtonView extends View
 			this.brush.setColor(this.button.getFaceColor());
 			canvas.drawCircle(buttonCenter.x, buttonCenter.y,
 					this.faceRadius, this.brush);
+			this.brush.setColor(this.button.getLabelColor());
+			float offsetY = this.brush.getTextSize() / 2f;
+			canvas.drawText(this.button.getLabelText(),
+					this.buttonCenter.x, this.buttonCenter.y + offsetY,
+					this.brush);
+			
 			// Draw overlay for depression
 			if (this.button.isDepressed()) {
 				this.brush.setColor(Color.argb(100, 100, 100, 100));

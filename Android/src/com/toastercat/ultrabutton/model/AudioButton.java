@@ -17,6 +17,7 @@ public class AudioButton {
 	private String labelText;
 	//
 	// Coloring
+	private int labelColor;
 	private int faceColor;
 	private int baseColor;
 	//
@@ -47,6 +48,9 @@ public class AudioButton {
 	//- Audio Clip ID ------------------------------------=
 	public void setAudioClipId(final int id) { this.audioClipId = id; }
 	public int getAudioClipId() { return this.audioClipId; }
+	//- Label Color --------------------------------------=
+	public void setLabelColor(final int c) { this.labelColor = c; }
+	public int getLabelColor() { return this.labelColor; }
 	//- Face Color ---------------------------------------=
 	public void setFaceColor(final int c) { this.faceColor = c; }
 	public int getFaceColor() { return this.faceColor; }
